@@ -25,14 +25,14 @@ def taskList(return_to_menu=True):
 
 # Arama işlemi
 def searchTask():
-    word = input("Aramak istediğiniz kelimeyi giriniz: ").lower()
+    word = input("Aramak istediğiniz kelimeyi giriniz(büyük harfle): ").upper()
     try:
         with open(FileName, "r") as file:
             tasks = file.readlines()
 
         status = False
         for task in tasks:
-            if word in task.lower():
+            if word.lower() in task.lower():
                 if not status:
                     print("Eşleşen Görevler: ")
                     status = True
